@@ -69,11 +69,13 @@ def is_zerse(msg):
 
 def format_zerse(msg, nick, dt):
     return \
+           '\\begin{minipage}{\\textwidth}' + \
            '\\poemtitle{***}\n' + \
            '\\begin{verse}\n' + \
            msg.strip().replace('\n', '\\\\\n').replace('\\\\\n\\\\','\\\\!') + '\n' + \
            '\\attrib{%s, %s}\n' % (nick, dt) + \
-           '\\end{verse}\n'
+           '\\end{verse}\n' + \
+           '\\end{minipage}\n'
 
 # Now, let's do it
 soup = BeautifulSoup(open(filename))
